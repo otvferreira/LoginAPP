@@ -120,11 +120,15 @@ FirebaseAuthApp/
 ### 1. Login Screen
 - Allows users to log in using their email and password.
 - Includes navigation to the registration screen for new users.
+
+---
 ![image](https://github.com/user-attachments/assets/f34fa151-e200-4f42-b689-c1da2e1385fa)
 
 ### 2. Register Screen
 - Allows new users to create an account.
 - On successful registration, navigates to the login screen.
+
+---
 ![image](https://github.com/user-attachments/assets/0616a70c-c2dc-433a-8616-be23f459227d)
 ![image](https://github.com/user-attachments/assets/afeb60cb-f222-498e-93bb-493d148403f2)
 
