@@ -1,12 +1,16 @@
-import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { getAuth, signOut } from 'firebase/auth';
+import React from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
+import { getAuth, signOut } from "firebase/auth";
 
 const HomeScreen = ({ navigation }) => {
     const handleLogout = async () => {
         const auth = getAuth();
-        await signOut(auth);
-        navigation.navigate('Login');
+        try {
+            await signOut(auth);
+            navigation.navigate("Login");
+        } catch (error) {
+            console.error("Error signing out: ", error.message);
+        }
     };
 
     return (
@@ -20,8 +24,8 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: "center",
+        alignItems: "center",
     },
     title: {
         fontSize: 24,

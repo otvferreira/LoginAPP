@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from "react";
+import { View, Text, TextInput, Button, StyleSheet, Alert } from "react-native";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const RegisterScreen = ({ navigation }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleRegister = async () => {
         const auth = getAuth();
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            Alert.alert('Success', 'Account created successfully!');
-            navigation.navigate('Login');
+            Alert.alert("Success", "Account created successfully!");
+            navigation.navigate("Login");
         } catch (error) {
-            Alert.alert('Registration Failed', error.message);
+            Alert.alert("Registration Failed", error.message);
         }
     };
 
@@ -25,6 +25,7 @@ const RegisterScreen = ({ navigation }) => {
                 placeholder="Email"
                 value={email}
                 onChangeText={setEmail}
+                keyboardType="email-address"
             />
             <TextInput
                 style={styles.input}
@@ -41,17 +42,17 @@ const RegisterScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: "center",
         padding: 20,
     },
     title: {
         fontSize: 24,
         marginBottom: 20,
-        textAlign: 'center',
+        textAlign: "center",
     },
     input: {
         borderWidth: 1,
-        borderColor: '#ccc',
+        borderColor: "#ccc",
         padding: 10,
         marginBottom: 10,
         borderRadius: 8,
